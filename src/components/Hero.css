@@ -10,13 +10,6 @@
   padding: 0;
 }
 
-.hero-item {
-  width: 25%;
-  padding-bottom: 25%; 
-  position: relative;
-  box-sizing: border-box;
-  margin: 0;
-}
 
 .hero-img {
   position: absolute;
@@ -29,10 +22,35 @@
   border: 0;
 }
 
-
 @media (max-width: 480px) {
   .hero-item {
     width: 50%;
+    aspect-ratio: 1 / 1;
   }
 }
 
+
+.hero-item {
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  box-sizing: border-box;
+
+  opacity: 0;
+  transform: translateZ(0) scale(0.96);
+  animation: pmFade 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  will-change: opacity, transform;
+}
+
+
+@keyframes pmFade {
+  0% {
+    opacity: 0;
+    transform: translateZ(0) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+}
