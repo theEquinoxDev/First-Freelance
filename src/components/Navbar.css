@@ -8,6 +8,9 @@
   box-sizing: border-box;
   margin-top: 20px;
   width: 100%;
+  opacity: 0;
+  animation: navbarFade 0.6s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
 .nav-left {
@@ -121,4 +124,10 @@
   .nav-left {
     flex: 0;
   }
+}
+
+
+@keyframes navbarFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
