@@ -1,9 +1,13 @@
-import React from 'react'
-import './Hero.css'
+import React from "react";
+import "./Hero.css";
 
 export default function Hero() {
-  const total = 33
-  const items = Array.from({ length: total }, (_, i) => i + 1)
+  const total = 33;
+  const items = Array.from({ length: total }, (_, i) => i + 1);
+
+  const handleImageLoad = (e) => {
+    e.currentTarget.classList.add("loaded");
+  };
 
   return (
     <section className="hero">
@@ -12,9 +16,10 @@ export default function Hero() {
           <div className="hero-item" key={n}>
             <img
               src={`/image${n}.webp`}
-              alt={`image ${n}`}
+              alt={`Image ${n}`}
               className="hero-img"
               loading="lazy"
+              onLoad={handleImageLoad}
             />
           </div>
         ))}
