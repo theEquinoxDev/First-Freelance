@@ -35,10 +35,9 @@
   aspect-ratio: 1 / 1;
   position: relative;
   box-sizing: border-box;
-
+ transform: translateZ(0);
   opacity: 0;
-  transform: translateZ(0) scale(0.96);
-  animation: pmFade 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: pmFade 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   will-change: opacity, transform;
 }
 
@@ -46,11 +45,14 @@
 @keyframes pmFade {
   0% {
     opacity: 0;
-    transform: translateZ(0) scale(0.96);
+    transform: translateZ(0);
   }
-
   100% {
     opacity: 1;
-    transform: translateZ(0) scale(1);
+    transform: translateZ(0);
   }
+}
+
+.hero-item.show {
+  animation: pmFade 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
