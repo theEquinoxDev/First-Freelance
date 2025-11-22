@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,13 +16,13 @@ export default function Navbar() {
         </div>
 
         <div className="nav-right">
-          <a href="#">PEOPLE</a>
-          <a href="#">PLACES</a>
-          <a href="#">THINGS</a>
-          <a href="#">CLIENTS</a>
-          <a href="#">ABOUT</a>
-          <a href="#">CONNECT</a>
-          <a href="#">SHOP</a>
+          <Link to="#">PEOPLE</Link>
+          <Link to="#">PLACES</Link>
+          <Link to="#">THINGS</Link>
+          <Link to="#">CLIENTS</Link>
+          <Link to="/about">ABOUT</Link>
+          <Link to="#">CONNECT</Link>
+          <Link to="#">SHOP</Link>
         </div>
 
         <button className="mobile-menu-btn" onClick={() => setOpen(true)}>
@@ -34,13 +35,13 @@ export default function Navbar() {
           <X size={22} />
         </button>
 
-        <a href="#">PEOPLE</a>
-        <a href="#">PLACES</a>
-        <a href="#">THINGS</a>
-        <a href="#">CLIENTS</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONNECT</a>
-        <a href="#">SHOP</a>
+        <Link to="#" onClick={() => setOpen(false)}>PEOPLE</Link>
+        <Link to="#" onClick={() => setOpen(false)}>PLACES</Link>
+        <Link to="#" onClick={() => setOpen(false)}>THINGS</Link>
+        <Link to="#" onClick={() => setOpen(false)}>CLIENTS</Link>
+        <Link to="/about" onClick={() => setOpen(false)}>ABOUT</Link>
+        <Link to="#" onClick={() => setOpen(false)}>CONNECT</Link>
+        <Link to="#" onClick={() => setOpen(false)}>SHOP</Link>
       </div>
     </>
   );
