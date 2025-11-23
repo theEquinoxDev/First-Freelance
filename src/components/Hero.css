@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-  background: #000;
+  background: white;
 }
 
 .hero-grid {
@@ -26,9 +26,12 @@
   aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
-  background: #111; /* fallback while images load */
+  background: white; /* fallback while images load */
 }
 
+/* Fade + subtle slide up. Animation is paused by default; it will start
+   when the image adds the `loaded` class (onLoad). Each image gets a
+   small inline `animation-delay` so they appear one-by-one quickly. */
 .hero-img {
   position: absolute;
   inset: 0;
@@ -36,18 +39,23 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: pmFade 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  animation: heroFadeUp 280ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-play-state: paused; 
 }
 
 .hero-img.loaded {
-  opacity: 1;
+  animation-play-state: running;
 }
 
-@keyframes pmFade {
+@keyframes heroFadeUp {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
