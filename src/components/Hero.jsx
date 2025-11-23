@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-grid">
-        {items.map((n) => (
+        {items.map((n, i) => (
           <div className="hero-item" key={n}>
             <img
               src={`/image${n}.webp`}
@@ -20,6 +20,7 @@ export default function Hero() {
               className="hero-img"
               loading="lazy"
               onLoad={handleImageLoad}
+              style={{ animationDelay: `${i * 80}ms` }}
             />
           </div>
         ))}
